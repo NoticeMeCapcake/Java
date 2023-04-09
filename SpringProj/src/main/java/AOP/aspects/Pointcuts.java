@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class Pointcuts {
-    @Pointcut("execution(public * get*(..))")
-    public void allGetMethods() {}
+    @Pointcut("execution(public * abc*(..))")
+    public void allAddMethods() {}
 }

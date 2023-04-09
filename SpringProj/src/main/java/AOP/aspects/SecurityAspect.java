@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Order(20)
 public class SecurityAspect {
-    @Before("AOP.aspects.Pointcuts.allGetMethods()")
+    @Before("AOP.aspects.Pointcuts.allAddMethods()")
     public void beforeGetSecurityAdvice() {
         System.out.println("Before getting security check");
     }

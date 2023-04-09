@@ -1,9 +1,14 @@
 package AOP.aspects;
 
+import AOP.Book;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
 
 @Component
 @Aspect
@@ -55,16 +60,37 @@ public class LoggingAspect {
 //    public void beforeGetBookAdvice() {
 //        System.out.println("Before get book");
 //    }
-    @Before("AOP.aspects.Pointcuts.allGetMethods()")
-    public void beforeGetLoggingAdvice() {
-        System.out.println("Before getting logging");
+    @Before("AOP.aspects.Pointcuts.allAddMethods()")
+    public void beforeGetLoggingAdvice(JoinPoint joinPoint) {
+        System.out.println("Before adding logging");
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+        Object[] args = joinPoint.getArgs();
+        System.out.println("method Signature, " + signature);
+        System.out.println("method , " + signature.getMethod());
+        System.out.println("args , " + Arrays.toString(args));
+
+        if (signature.getName().equals("addBook")) {
+            System.out.println("Adding book");
+            for (Object arg : args) {
+                if (arg instanceof Book book) {
+                    System.out.println("Book title : " + book.getTitle());
+                    System.out.println("Book year : " + book.getYearOfPublication());
+                }
+                else if (arg instanceof String personName) {
+                    System.out.println("Person name : " + personName);
+                }
+            }
+        } else if (signature.getName().equals("addMagazine")) {
+            System.out.println("Adding magazine");
+        }
+
     }
 
 
-    @Before("execution(public * returnBook())")
-    public void beforeReturnBookAdvice() {
-        System.out.println("Before returning");
-    }
+//    @Before("execution(public * returnBook())")
+//    public void beforeReturnBookAdvice() {
+//        System.out.println("Before returning");
+//    }
 
 
 }
