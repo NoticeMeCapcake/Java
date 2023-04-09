@@ -1,7 +1,13 @@
 package Spring1;
 
-import java.security.PublicKey;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import java.security.PublicKey;
+//@Component
+@Scope("prototype")
 public class Dog implements Pet {
     public String name;
     public Dog() {
@@ -16,10 +22,11 @@ public class Dog implements Pet {
         System.out.println("Setting name");
         this.name = name;
     }
-
+    @PostConstruct
     private void init() {
         System.out.println("Dog bean initialized");
     }
+    @PreDestroy
     private void destroy() {
         System.out.println("Dog bean destroyed");
     }
