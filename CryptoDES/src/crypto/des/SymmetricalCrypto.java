@@ -38,7 +38,8 @@ public class SymmetricalCrypto {
         int len;
         try (FileInputStream fileInputStream = new FileInputStream(file);
              FileOutputStream fileOutputStream = new FileOutputStream(outFile)) {
-            while ((len = fileInputStream.read(buffer, 0, 79992)) > 0) {
+            int length =  (this.mode == des.CipherModes.RD) ? 79984 : (this.mode == des.CipherModes.RDH) ? 79976 : 79992;
+            while ((len = fileInputStream.read(buffer, 0, length)) > 0) {
                 int last = len % 8;
                 Arrays.fill(buffer, len, len + 8 - last, (byte) (8 - last));
                 fileOutputStream.write(modeRealization.encrypt(buffer, len + 8 - last), 0 , len + 8 - last);
