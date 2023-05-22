@@ -1,0 +1,17 @@
+
+Š
+java:S1192	"oDefine a constant instead of duplicating this literal "----------------------------------------------" 5 times.(½õŸ÷øÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ó„íÍüÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ú«Ïıÿÿÿÿ
+S	java:S106	"9Replace this use of System.out or System.err by a logger.(½õŸ÷øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(‰À´Óûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(½õŸ÷øÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ëß»ƒ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¿‚üûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(½õŸ÷øÿÿÿÿ
+V
+java:S1172";Remove these unused method parameters "personName", "book".(äĞû–úÿÿÿÿ
+M	java:S106"9Replace this use of System.out or System.err by a logger.(–ÁêB
+S	java:S106"9Replace this use of System.out or System.err by a logger.(½õŸ÷øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ıÊ«Äÿÿÿÿÿ
+S	java:S106 "9Replace this use of System.out or System.err by a logger.(½õŸ÷øÿÿÿÿ

@@ -1,0 +1,31 @@
+
+K
+java:S1121".Extract the assignment out of this expression.(Ñ¿¥Ò8¡¤é°1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ïªûÿÿÿÿ8¢¤é°1
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ù®è8¢¤é°1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ïªûÿÿÿÿ8£¤é°1
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ù®è8£¤é°1
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•¤È8£¤é°1
+r	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(“Ïªûÿÿÿÿ8£¤é°1
+m	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶ù®è8£¤é°1
+m	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•¤È8£¤é°1
+m	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëˆ¨ò8£¤é°1
+k
+java:S1845Ÿ"HRename method "f" to prevent any misunderstanding/clash with method "F".(°ƒ¢üÿÿÿÿ8È¤é°1
+X	java:S125$"<This block of commented-out lines of code should be removed.(Èª8Ñ¤é°1
+Z	java:S106@"9Replace this use of System.out or System.err by a logger.(×ª‡¡úÿÿÿÿ8×¤é°1
+o	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğå¶÷şÿÿÿÿ8Ú¤é°1
+j	java:S100W"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªëÒÿ8Ú¤é°1
+j	java:S100h"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜ò¦ƒ8İ¤é°1
+o	java:S100n"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Şú¹ûûÿÿÿÿ8Ş¤é°1
+o	java:S100v"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É–áÚøÿÿÿÿ8ß¤é°1
+k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿìÀ¿8á¤é°1
+k	java:S100‰"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ü­ä8â¤é°1
+p	java:S100”"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óı‡ûşÿÿÿÿ8ã¤é°1
+q
+java:S2234—"SParameters to A have the same names but not the same order as the method arguments.(îÎºÑ8ä¤é°1
+p	java:S100›"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—Âóışÿÿÿÿ8ä¤é°1
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8Ñ¯ñ°1
+P
+java:S11440"4Remove this unused private "fromBytesToLong" method.(ïÆ“8è¤é°1

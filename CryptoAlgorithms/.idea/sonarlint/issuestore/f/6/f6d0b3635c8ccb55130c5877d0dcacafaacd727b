@@ -1,0 +1,11 @@
+
+}
+java:S1488"[Immediately return this expression instead of assigning it to the temporary variable "ccc".(§¬ÓŠÿÿÿÿÿ8ÎÌš”1
+T
+java:S2589"7Remove this expression which always evaluates to "true"(¿Á–8…Íš”1
+q	java:S116
+"PRename this field "c_map" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ø„™ûÿÿÿÿ8†Íš”1
+O
+java:S1135"2Complete the task associated to this TODO comment.(‰•Îê8‰Íš”1
+X	java:S125"<This block of commented-out lines of code should be removed.(Ö‘ÕÀ8‹Íš”1
+Z	java:S1065"9Replace this use of System.out or System.err by a logger.(İøÙÊúÿÿÿÿ8Íš”1
