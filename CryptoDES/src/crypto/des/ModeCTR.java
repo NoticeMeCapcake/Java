@@ -11,10 +11,9 @@ public class ModeCTR implements Mode {
 
     private final CryptoFunction algorithm;
     private final byte[] initializationVec;
-    private byte[] prevBlock;
-    private int halfLen;
-    private int len;
-    private int mod;
+    private final int halfLen;
+    private final int len;
+    private final int mod;
 
     private int ctr;
 
@@ -24,7 +23,6 @@ public class ModeCTR implements Mode {
         len = init.length;
         halfLen = len / 2;
         mod = 1 << halfLen;
-        prevBlock = Arrays.copyOfRange(init, 0, init.length);
         ctr = 0;
     }
 

@@ -33,13 +33,13 @@ public class SymmetricalCrypto {
     }
 
     public void encryptFile(String file, String outFile) {
-        modeRealization.reset();
         byte[] buffer = new byte[80000];
         int len;
         try (FileInputStream fileInputStream = new FileInputStream(file);
              FileOutputStream fileOutputStream = new FileOutputStream(outFile)) {
-            int length =  (this.mode == des.CipherModes.RD) ? 79984 : (this.mode == des.CipherModes.RDH) ? 79976 : 79992;
+            int length =  (this.mode == CipherModes.RD) ? 79984 : (this.mode == CipherModes.RDH) ? 79976 : 79992;
             while ((len = fileInputStream.read(buffer, 0, length)) > 0) {
+                modeRealization.reset();
                 int last = len % 8;
                 Arrays.fill(buffer, len, len + 8 - last, (byte) (8 - last));
                 fileOutputStream.write(modeRealization.encrypt(buffer, len + 8 - last), 0 , len + 8 - last);
@@ -50,16 +50,16 @@ public class SymmetricalCrypto {
         }
     }
     public void decryptFile(String file, String outFile) {
-        modeRealization.reset();
         byte[] buffer = new byte[80000];
         int len;
         try (FileInputStream fileInputStream = new FileInputStream(file);
              FileOutputStream fileOutputStream = new FileOutputStream(outFile)) {
             while ((len = fileInputStream.read(buffer)) > 0) {
-                System.out.println("dec");
+                modeRealization.reset();
                 byte[] newBuf = modeRealization.decrypt(buffer, len);
-                int last = newBuf[len - 1];
-                fileOutputStream.write(newBuf, 0 , len - last);
+                var shift = ((this.mode == CipherModes.RD) ? 8 : (this.mode == CipherModes.RDH) ? 16 : 0);
+                int paddedBytes = newBuf[len - 1 - shift] & 0xFF;
+                fileOutputStream.write(newBuf, 0 , len - paddedBytes - shift);
             }
         }
         catch  (IOException e){

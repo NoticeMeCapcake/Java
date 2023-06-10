@@ -1,7 +1,6 @@
 package crypto.des;
 
 import java.math.BigInteger;
-import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,29 +14,28 @@ public class ModeRD implements Mode {
     private BigInteger delta;
     private BigInteger initial;
 
+    private final BigInteger shift;
+
     public ModeRD(CryptoFunction algo, byte[] init){
         this.algorithm = algo;
         this.initializationVec = init;
         this.initial = new BigInteger(init);
         this.delta = new BigInteger(init, init.length/2, init.length/2);
+        shift = BigInteger.ONE.shiftLeft(64);
     }
     @Override
     public byte[] encrypt(byte[] buffer, int len) {
         int index = 0;
-        long shift = 1<<8;
         int processors = Runtime.getRuntime().availableProcessors();
         ExecutorService service = Executors.newFixedThreadPool(processors);
         List<Future<byte[]>> encryptedBlocksFutures = new LinkedList<>();
-        encryptedBlocksFutures.add(service.submit(() -> algorithm.encrypt(ByteBuffer.allocate(8).put(initial.toByteArray()).array())));
+        encryptedBlocksFutures.add(service.submit(() -> algorithm.encrypt(initial.toByteArray())));
         for (int i = 0; i < len; i += 8) {
             byte[] initArray = initial.toByteArray();
-            ByteBuffer byteBuffer = ByteBuffer.allocate(8);
-            byteBuffer.put(initArray);
-            initArray = byteBuffer.array();
             for (int j = 0; j < 8; j++) {
                 buffer[index++] ^= initArray[j];
             }
-            initial = initial.add(delta).mod(BigInteger.valueOf(shift));
+            initial = initial.add(delta).mod(shift);
         }
         for (int i = 0; i < len; i += 8) {
             byte[] newBuf = Arrays.copyOfRange(buffer, i, i + 8);
@@ -51,7 +49,6 @@ public class ModeRD implements Mode {
     @Override
     public byte[] decrypt(byte[] buffer, int len) {
         int index = 0;
-        long shift = 1<<8;
         int processors = Runtime.getRuntime().availableProcessors();
         ExecutorService service = Executors.newFixedThreadPool(processors);
         List<Future<byte[]>> decryptedBlocksFutures = new LinkedList<>();
@@ -65,13 +62,10 @@ public class ModeRD implements Mode {
 
         for (int i = 0; i < len; i += 8) {
             byte[] initArray = initial.toByteArray();
-            ByteBuffer byteBuffer = ByteBuffer.allocate(8);
-            byteBuffer.put(initArray);
-            initArray = byteBuffer.array();
             for (int j = 0; j < 8; j++) {
                 resBytes[index++] ^= initArray[j];
             }
-            initial = initial.add(delta).mod(BigInteger.valueOf(shift));
+            initial = initial.add(delta).mod(shift);
         }
 
         return resBytes;
