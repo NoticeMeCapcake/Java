@@ -19,10 +19,18 @@
 * Id
 * Author (Id)
 * Executor (Id)
+* Priority
+* Title
 
 ### 3. Комментарий
 
 * Task (Id)
-* User (Id)
+* Executor (Id)
 * TimeStamp
 * Text
+* Priority (Id)
+
+### 4. Приоритет
+
+* Id
+* Name (Высокий/Средний/Низкий)
